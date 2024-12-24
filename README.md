@@ -42,8 +42,8 @@ This repository contains the development of a multiplayer web-based game platfor
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/iee-ihu-gr-course1941/ERASMUS24_xxxxx.git
-   cd ERASMUS24_xxxxx
+   git clone https://github.com/iee-ihu-gr-course1941/ERASMUS24.git
+   cd ERASMUS24
 
 2. **Set up the database:**
 
