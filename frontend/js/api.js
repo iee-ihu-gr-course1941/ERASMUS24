@@ -1,12 +1,18 @@
-/*├── js/              # JavaScript files
-  ├── api.js       # Functions for API calls (e.g., fetch wrapper)*/
-
-async function fetchAPI(url, method = 'GET', body = null) {
-    const headers = { 'Content-Type': 'application/json' };
-    const response = await fetch(url, {
-        method,
-        headers,
-        body: body ? JSON.stringify(body) : null,
-    });
-    return response.json();
+async function makeMove(column) {
+  try {
+      const response = await fetch('http://127.0.0.1:5500/backend/routes/moves.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ column }),
+      });
+      if (!response.ok) {
+          throw new Error('Invalid move');
+      }
+      return await response.json();
+  } catch (error) {
+      console.error('Error making move:', error);
+      return null;
+  }
 }

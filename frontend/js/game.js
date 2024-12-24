@@ -1,17 +1,26 @@
-//# Game-specific logic (e.g., rendering the board)
+function initializeBoard() {
+    const boardContainer = document.getElementById("game-board");
 
-function renderBoard(board) {
-    const container = document.getElementById('game-container');
-    container.innerHTML = ''; // Clear previous board
-    board.forEach((row, rowIndex) => {
-        const rowDiv = document.createElement('div');
-        row.forEach((cell, colIndex) => {
-            const cellDiv = document.createElement('div');
-            cellDiv.className = 'cell';
-            cellDiv.textContent = cell || '';
-            cellDiv.addEventListener('click', () => makeMove(rowIndex, colIndex));
-            rowDiv.appendChild(cellDiv);
-        });
-        container.appendChild(rowDiv);
-    });
+    boardContainer.innerHTML = "";
+
+    for (let column = 2; column <= 12; column++) {
+        const columnDiv = document.createElement("div");
+        columnDiv.className = "column";
+        columnDiv.id = `column-${column}`;
+
+        const columnLabel = document.createElement("div");
+        columnLabel.className = "column-label";
+        columnLabel.textContent = `Column ${column}`;
+        columnDiv.appendChild(columnLabel);
+
+        for (let space = 1; space <= column; space++) {
+            const spaceDiv = document.createElement("div");
+            spaceDiv.className = "space";
+            spaceDiv.id = `column-${column}-space-${space}`;
+            spaceDiv.textContent = space;
+            columnDiv.appendChild(spaceDiv);
+        }
+
+        boardContainer.appendChild(columnDiv);
+    }
 }
