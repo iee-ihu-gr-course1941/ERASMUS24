@@ -62,7 +62,7 @@ class Game {
         const sprite = sprites[PSprites[this.playerTurn]];
         const winElement = document.getElementById("win");
         winElement.style.display = "block";
-        winElement.textContent = `Player ${this.playerTurn + 1} wins`;
+        winElement.textContent = `Player ${this.playerTurn + 1} is the winner!`;
         winElement.prepend(sprite.make());
         winElement.append(sprite.make());
     }
@@ -246,7 +246,7 @@ async function init() {
     const spriteNames = [
         "die1", "die2", "die3", "die4", "die5", "die6", " ", "^", "|", "v", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "o", "x", "A", "B", "C", "D", "E"
     ];
-    sprites = await Sprites.loadAll("./assets/GuiElements4.0.png", 64, spriteNames);
+    sprites = await Sprites.loadAll("./assets/GuiElements.png", 64, spriteNames);
 
     const board = [
         "     7      ",
